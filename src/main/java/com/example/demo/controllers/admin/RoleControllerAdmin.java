@@ -19,4 +19,9 @@ public class RoleControllerAdmin extends BaseAdminLinkedController<Role> {
         super(ROLE_CONTROLLER_ADMIN_NAME, Role.class);
     }
 
+	@Override
+	public Boolean checkEquality(Role item, Long externalId, String linkedItem) {
+		return null;
+	}
+
 }

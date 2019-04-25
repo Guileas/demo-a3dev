@@ -19,21 +19,21 @@ import com.example.demo.database.base.DbEntity;
 public abstract class BaseAdminController<T extends DbEntity> implements CrudController<T> {
 
     public static final String BASE_ADMIN_CONTROLLER_NAME = "admin";
-    
+
     public final String controllerName;
-    public final Class klazz;
+    public final Class<?> klazz;
     private String indexPath;
     private String detailsPath;
-    
+
     @Autowired
     protected JpaRepository<T, Long> repository;
-    
-    protected BaseAdminController(final String controllerName, Class klazz) {
+
+    protected BaseAdminController(final String controllerName, Class<?> klazz) {
         this.controllerName = controllerName;
         this.klazz = klazz;
         this.indexPath = UriUtils.URI_SLASH + this.controllerName + UriUtils.URI_INDEX_PATH;
         this.detailsPath = UriUtils.URI_SLASH + this.controllerName + UriUtils.URI_DETAILS_PATH;
-        
+
         String basePath = UriUtils.URI_SLASH + BaseAdminController.BASE_ADMIN_CONTROLLER_NAME +
                 UriUtils.URI_SLASH + controllerName;
         List<String> datas = new ArrayList<String>();
@@ -41,17 +41,17 @@ public abstract class BaseAdminController<T extends DbEntity> implements CrudCon
         datas.add(basePath + UriUtils.URI_INDEX_PATH);
         datas.add(basePath + UriUtils.URI_DETAILS_PATH);
         datas.add(basePath + UriUtils.URI_DETAILS_ID_PATH);
-        
+
         MappedRoutes.getInstance().getRoutes().put(klazz, datas);
     }
-    
+
     @Override
     @RequestMapping(value = {UriUtils.URI_SLASH,UriUtils.URI_INDEX_PATH}, method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("items",this.repository.findAll());
         return this.indexPath;
     }
-    
+
     @Override
     @RequestMapping(value = {UriUtils.URI_DETAILS_PATH}, method = RequestMethod.GET)
     public String details(Model model) {
