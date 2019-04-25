@@ -1,6 +1,7 @@
 package com.example.demo.controllers.admin;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.controllers.admin.base.BaseAdminController;
@@ -15,4 +16,10 @@ public class UserControllerAdmin extends BaseAdminController<User> {
     protected UserControllerAdmin() {
         super(USER_CONTROLLER_ADMIN_NAME, User.class);
     }
+
+	@Override
+	public String details(Model model, Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

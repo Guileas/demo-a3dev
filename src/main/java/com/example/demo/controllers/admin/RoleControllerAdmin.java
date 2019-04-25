@@ -1,6 +1,7 @@
 package com.example.demo.controllers.admin;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.controllers.admin.base.BaseAdminController;
@@ -18,5 +19,17 @@ public class RoleControllerAdmin extends BaseAdminLinkedController<Role> {
     protected RoleControllerAdmin() {
         super(ROLE_CONTROLLER_ADMIN_NAME, Role.class);
     }
+
+	@Override
+	public Boolean checkEquality(Role item, Long externalId, String linkedItem) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String details(Model model, Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

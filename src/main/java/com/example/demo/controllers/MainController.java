@@ -10,7 +10,7 @@ import com.example.demo.entities.User;
 
 @Controller
 public class MainController {
-    
+
     @Autowired
     private UserRepository userRepository;
 
@@ -18,7 +18,7 @@ public class MainController {
     public String genericRedirection() {
         return "redirect:/index";
     }
-    
+
     @RequestMapping(value = {"/","/index"}, method = {RequestMethod.GET})
     public String index() {
         User user = new User();
@@ -26,7 +26,7 @@ public class MainController {
         this.userRepository.save(user);
         return "/index";
     }
-    
+
     @RequestMapping(value = {"/toto","/toto/toto"}, method = {RequestMethod.GET})
     public String index1() {
         return "/index1";
