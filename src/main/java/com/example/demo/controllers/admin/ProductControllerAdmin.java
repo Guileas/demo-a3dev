@@ -20,14 +20,15 @@ public class ProductControllerAdmin extends BaseAdminLinkedController<Product> {
     }
 
 	@Override
-	public Boolean checkEquality(Product item, Long externalId, String linkedItem) {
+	public String details(Model model, Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String details(Model model, Long id) {
+	public Boolean checkEquality(Product item, Long externalId, String linkedItem) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

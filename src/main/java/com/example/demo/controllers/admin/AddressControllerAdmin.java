@@ -12,7 +12,7 @@ import com.example.demo.entities.Address;
 import com.example.demo.entities.Product;
 
 @Controller
-@RequestMapping(value = {UriUtils.URI_SLASH + BaseAdminController.BASE_ADMIN_CONTROLLER_NAME + UriUtils.URI_SLASH + ProductControllerAdmin.PRODUCT_CONTROLLER_ADMIN_NAME})
+@RequestMapping(value = {UriUtils.URI_SLASH + BaseAdminController.BASE_ADMIN_CONTROLLER_NAME + UriUtils.URI_SLASH + AddressControllerAdmin.PRODUCT_CONTROLLER_ADMIN_NAME})
 public class AddressControllerAdmin extends BaseAdminLinkedController<Address> {
 
 	public static final String PRODUCT_CONTROLLER_ADMIN_NAME = "address";

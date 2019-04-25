@@ -3,6 +3,8 @@ package com.example.demo.controllers.admin;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.controllers.admin.base.BaseAdminController;
 import com.example.demo.controllers.admin.base.BaseAdminLinkedController;
@@ -21,13 +23,13 @@ public class RoleControllerAdmin extends BaseAdminLinkedController<Role> {
     }
 
 	@Override
-	public Boolean checkEquality(Role item, Long externalId, String linkedItem) {
+	public String details(Model model, Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String details(Model model, Long id) {
+	public Boolean checkEquality(Role item, Long externalId, String linkedItem) {
 		// TODO Auto-generated method stub
 		return null;
 	}
