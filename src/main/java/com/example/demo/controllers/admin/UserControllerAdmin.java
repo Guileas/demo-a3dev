@@ -11,8 +11,8 @@ import com.example.demo.entities.User;
 public class UserControllerAdmin extends BaseAdminController<User> {
 
     public static final String USER_CONTROLLER_ADMIN_NAME = "user";
-    
+
     protected UserControllerAdmin() {
-        super(USER_CONTROLLER_ADMIN_NAME);
+        super(USER_CONTROLLER_ADMIN_NAME, User.class);
     }
 }

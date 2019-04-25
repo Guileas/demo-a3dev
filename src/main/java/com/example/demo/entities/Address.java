@@ -1,6 +1,6 @@
 package com.example.demo.entities;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,8 +29,9 @@ public class Address extends DbEntity {
 	@Column(name = "city")
 	private String city;
 
-	@OneToMany(mappedBy = "owner")
-	private ArrayList<User> users;
+	//@OneToMany(mappedBy = "owner", targetEntity = User.class)
+	@OneToMany(targetEntity = User.class, mappedBy = "address")
+	private List<User> users;
 
 
 }
