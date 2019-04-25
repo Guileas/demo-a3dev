@@ -17,4 +17,9 @@ public class ProductControllerAdmin extends BaseAdminLinkedController<Product> {
     protected ProductControllerAdmin() {
         super(PRODUCT_CONTROLLER_ADMIN_NAME, Product.class);
     }
+
+	@Override
+	public Boolean checkEquality(Product item, Long externalId, String linkedItem) {
+		return null;
+	}
 }
