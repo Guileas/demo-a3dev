@@ -3,7 +3,7 @@ package com.example.demo.entities.utils;
 public class EntitiesMapping {
 
     public static final String USER_TO_ROLE = "roles";
-    public static final String USER_TO_ADDRESS = "addresses";
+    public static final String USER_TO_ADDRESS = "address";
     public static final String USER_TO_PRODUCT = "products";
 
     public static final String ROLE_TO_USER = "users";
