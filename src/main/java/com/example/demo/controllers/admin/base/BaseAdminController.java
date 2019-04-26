@@ -1,5 +1,6 @@
 package com.example.demo.controllers.admin.base;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -18,14 +19,13 @@ import com.example.demo.controllers.utils.MappedRoutes;
 import com.example.demo.controllers.utils.UriUtils;
 import com.example.demo.database.base.DbEntity;
 import com.example.demo.utils.DumpFields;
-import java.lang.reflect.Field;
 
 public abstract class BaseAdminController<T extends DbEntity> implements CrudController<T> {
 
     public static final String BASE_ADMIN_CONTROLLER_NAME = "admin";
 
     public final String controllerName;
-    public final Class<?> klazz;
+    public final Class klazz;
     private String indexPath;
     private String detailsPath;
 
@@ -52,7 +52,9 @@ public abstract class BaseAdminController<T extends DbEntity> implements CrudCon
     @Override
     @RequestMapping(value = {UriUtils.URI_SLASH,UriUtils.URI_INDEX_PATH}, method = RequestMethod.GET)
     public String index(Model model) {
-        model.addAttribute("items",this.repository.findAll());
+        model.addAttribute("view_name", this.controllerName + " index");
+        ArrayList<Map<String, Object>> datas = DumpFields.listFielder(this.repository.findAll());
+        model.addAttribute("items", datas);
         return this.indexPath;
     }
 

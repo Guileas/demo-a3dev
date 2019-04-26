@@ -37,7 +37,15 @@ public class User extends DbEntity {
 	@ManyToMany
 	private List<Product> products;
 
-    public List<Product> getProducts() {
+    public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Product> getProducts() {
 		return products;
 	}
 
