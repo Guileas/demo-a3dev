@@ -40,5 +40,4 @@ public class RoleControllerAdmin extends BaseAdminLinkedController<Role> {
         }
         return result;
 	}
-
 }

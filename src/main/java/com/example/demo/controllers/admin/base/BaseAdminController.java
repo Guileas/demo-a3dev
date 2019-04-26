@@ -27,6 +27,7 @@ public abstract class BaseAdminController<T extends DbEntity> implements CrudCon
     public final String controllerName;
     public final Class klazz;
     private String indexPath;
+    private String initPath;
     private String detailsPath;
 
     @Autowired
@@ -37,7 +38,7 @@ public abstract class BaseAdminController<T extends DbEntity> implements CrudCon
         this.klazz = klazz;
         this.indexPath = UriUtils.URI_SLASH + this.controllerName + UriUtils.URI_INDEX_PATH;
         this.detailsPath = UriUtils.URI_SLASH + this.controllerName + UriUtils.URI_DETAILS_PATH;
-
+        this.initPath = UriUtils.URI_SLASH;
         String basePath = UriUtils.URI_SLASH + BaseAdminController.BASE_ADMIN_CONTROLLER_NAME +
                 UriUtils.URI_SLASH + controllerName;
         List<String> datas = new ArrayList<String>();
@@ -84,17 +85,11 @@ public abstract class BaseAdminController<T extends DbEntity> implements CrudCon
     }
 
     @Override
-    @RequestMapping(value = {UriUtils.URI_DELETE_PATH}, method = RequestMethod.DELETE)
-    public String delete(Model model, @ModelAttribute T item) {
-        this.repository.delete(item);
-        return "redirect: /";
-    }
-
-    @Override
-    @RequestMapping(value = {UriUtils.URI_DELETE_ID_PATH}, method = RequestMethod.DELETE)
+    @RequestMapping(value = {UriUtils.URI_DELETE_ID_PATH}, method = RequestMethod.GET)
     public String delete(Model model, @PathVariable @NotNull Long id) {
     	this.repository.delete(this.repository.getOne(id));
-        return this.detailsPath;
+    	this.repository.flush();
+        return this.initPath;
     }
 
 }

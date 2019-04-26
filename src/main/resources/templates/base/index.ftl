@@ -6,7 +6,7 @@ base index
     <div>
         <#list item?keys as key>
             <#if !item[key]?is_sequence && item[key]?has_content>
-            <div>${key}</div>
+
                 <#if item[key]?is_boolean>
             <div>${item[key]?c}</div>
                 <#elseif item[key]?is_date_like>
@@ -15,14 +15,20 @@ base index
             <div>${item[key]}</div>
                 </#if>
             </#if>
+
         </#list>
         <div>
         <#list item?keys as key>
             <#if item[key]?is_sequence>
             <a href="">${key}</a>
             </#if>
+            <#if item[key]?is_number>
+             <a href="./delete/${item[key]}">Supprimer</a>
+            </#if>
+
         </#list>
         <div>
+
     </div>
     </#list>
 </#if>

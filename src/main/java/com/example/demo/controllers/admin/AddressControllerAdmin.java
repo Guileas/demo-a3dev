@@ -39,4 +39,5 @@ public class AddressControllerAdmin extends BaseAdminLinkedController<Address> {
         }
         return result;
     }
+
 }

@@ -57,4 +57,5 @@ public class UserControllerAdmin extends BaseAdminLinkedController<User> {
 
         return result;
     }
+
 }
