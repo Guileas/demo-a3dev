@@ -50,6 +50,9 @@ public abstract class BaseAdminController<T extends DbEntity> implements CrudCon
         MappedRoutes.getInstance().getRoutes().put(klazz, datas);
     }
 
+    /**
+     * Show object list route
+     */
     @Override
     @RequestMapping(value = {UriUtils.URI_SLASH,UriUtils.URI_INDEX_PATH}, method = RequestMethod.GET)
     public String index(Model model) {
@@ -59,6 +62,9 @@ public abstract class BaseAdminController<T extends DbEntity> implements CrudCon
         return this.indexPath;
     }
 
+    /**
+     * Create a new object route
+     */
     @Override
     @RequestMapping(value = {UriUtils.URI_DETAILS_PATH}, method = RequestMethod.GET)
     public String details(Model model) {
@@ -68,6 +74,9 @@ public abstract class BaseAdminController<T extends DbEntity> implements CrudCon
         return this.detailsPath;
     }
 
+    /**
+     * Redirect function after create object
+     */
     @Override
     @RequestMapping(value = {UriUtils.URI_DETAILS_PATH}, method = RequestMethod.POST)
     public String details(Model model, @ModelAttribute T item) {
@@ -75,6 +84,9 @@ public abstract class BaseAdminController<T extends DbEntity> implements CrudCon
         return "redirect: /";
     }
 
+    /**
+     * Update object route
+     */
     @Override
     @RequestMapping(value = {UriUtils.URI_DETAILS_ID_PATH}, method = RequestMethod.GET)
     public String details(Model model, @PathVariable @NotNull Long id) {
@@ -84,6 +96,9 @@ public abstract class BaseAdminController<T extends DbEntity> implements CrudCon
         return this.detailsPath;
     }
 
+    /**
+     * Delete object route
+     */
     @Override
     @RequestMapping(value = {UriUtils.URI_DELETE_ID_PATH}, method = RequestMethod.GET)
     public String delete(Model model, @PathVariable @NotNull Long id) {
