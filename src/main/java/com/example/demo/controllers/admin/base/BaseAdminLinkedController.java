@@ -41,4 +41,5 @@ public abstract class BaseAdminLinkedController<T extends DbEntity> extends Base
     }
 
     public abstract Boolean checkEquality(T item, Long externalId, String linkedItem);
+
 }

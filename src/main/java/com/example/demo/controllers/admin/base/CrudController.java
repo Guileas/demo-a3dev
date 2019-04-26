@@ -10,5 +10,8 @@ public interface CrudController <T extends DbEntity> {
     String details(Model model);
     String details(Model model, T item);
     String details(Model model, Long id);
+    String delete(Model model, T item);
+    String delete(Model model, Long id);
+
 
 }
