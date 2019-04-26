@@ -34,6 +34,17 @@ public class User extends DbEntity {
     @JoinColumn(name = "address_id")
     private Address address;
 
+    @ManyToOne
+    private Role role;
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 	@ManyToMany
 	private List<Product> products;
 
