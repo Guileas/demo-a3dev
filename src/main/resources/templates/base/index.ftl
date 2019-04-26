@@ -1,6 +1,7 @@
 base index
 
 <div>
+ <a href="./details">New</a>
 <#if items??>
     <#list items as item>
     <div>
