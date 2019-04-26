@@ -17,9 +17,4 @@ public class UserControllerAdmin extends BaseAdminController<User> {
         super(USER_CONTROLLER_ADMIN_NAME, User.class);
     }
 
-	@Override
-	public String details(Model model, Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

@@ -22,12 +22,6 @@ public class AddressControllerAdmin extends BaseAdminLinkedController<Address> {
     }
 
 	@Override
-	public String details(Model model, Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public Boolean checkEquality(Address item, Long externalId, String linkedItem) {
 		// TODO Auto-generated method stub
 		return null;
