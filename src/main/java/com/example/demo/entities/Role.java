@@ -1,8 +1,11 @@
 package com.example.demo.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.example.demo.database.base.DbEntity;
@@ -23,6 +26,17 @@ public class Role extends DbEntity{
 
 	@Column(name = "isRoot")
     private Boolean isRoot;
+
+	@OneToMany
+	private List<User> users;
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 
 	public String getName() {
 		return name;

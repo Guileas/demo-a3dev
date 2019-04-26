@@ -1,10 +1,13 @@
 package com.example.demo.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -31,16 +34,34 @@ public class User extends DbEntity {
     @JoinColumn(name = "address_id")
     private Address address;
 
-    public User() {
-		super();
+    @ManyToOne
+    private Role role;
+
+	public Role getRole() {
+		return role;
 	}
 
-	public User(String firstname, String lastname, Integer nbChildren, Boolean happy) {
-		super();
-		this.firstname = firstname;
-		this.lastname = lastname;
-		this.nbChildren = nbChildren;
-		this.happy = happy;
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	@ManyToMany
+	private List<Product> products;
+
+    public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
 	public String getFirstname() {
