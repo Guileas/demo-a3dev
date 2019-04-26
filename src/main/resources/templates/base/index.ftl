@@ -22,7 +22,7 @@ base index
             <#if item[key]?is_sequence>
             <a href="">${key}</a>
             </#if>
-            <#if item[key]?is_number>
+            <#if key == "id">
              <a href="./delete/${item[key]}">Supprimer</a>
             </#if>
 
